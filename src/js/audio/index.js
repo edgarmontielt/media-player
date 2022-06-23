@@ -1,6 +1,6 @@
 "use strict";
 import songs from "../../data/music.json" assert { type: "json" };
-import { controls, backTime, advancedTime } from "./controllers/controls.js";
+import { controls } from "./controllers/controls.js";
 
 const contentList = document.querySelector(".content-list");
 const songContainer = document.getElementById("audio");
@@ -51,5 +51,3 @@ function disactive() {
 }
 
 controls(songContainer)
-backTime(songContainer)
-advancedTime(songContainer)

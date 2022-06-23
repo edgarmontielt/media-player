@@ -5,31 +5,27 @@ const advance = document.getElementById('advance')
 const play = document.getElementById('play-music')
 
 function controls(music) {
-    playOrPause(music)
+    play.addEventListener('click', () => playOrPause(music))
+    back.addEventListener('click', () => backTime(music))
+    advance.addEventListener('click', () => advancedTime(music))
 }
 
 
 function playOrPause(data) {
-    play.addEventListener('click', () => {
-        if (data.paused) {
-            data.play()
-        } else {
-            data.pause()
-        }
-    })
+    if (data.paused) {
+        data.play()
+    } else {
+        data.pause()
+    }
 }
 
-function backTime(music) {
-    back.addEventListener('click', () => {
-        music.currentTime -= 10
-    })
+function backTime(data) {
+    data.currentTime -= 10
 }
 
-function advancedTime(music) {
-    advance.addEventListener('click', () => {
-        music.currentTime += 10
-    })
+function advancedTime(data) {
+    data.currentTime += 10
 }
 
-export { controls, backTime, advancedTime }
+export { controls }
 
