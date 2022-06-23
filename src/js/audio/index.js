@@ -5,11 +5,19 @@ const contentList = document.querySelector(".content-list");
 const songContainer = document.getElementById("audio");
 const folder = "../assets/audio/";
 
+let duration
+
+songContainer.addEventListener('loadeddata', event => {
+    console.log(duration);
+    duration = event.target.duration
+})
+
+
 export default function audioController() {
     songs.forEach(song => {
         const res = renderSongName(song);
         contentList.appendChild(res);
-        res.onclick = (event) => playSong(event.target.innerText, res);
+        addEvents(res)
     });
 }
 
@@ -20,11 +28,20 @@ function renderSongName(data) {
     return card;
 }
 
-function playSong(song, card) {
+function addEvents(song) {
+    const name = song.innerText
+    song.onclick = () => {
+        play(name)
+        song.classList.add("active");
+    };
+}
+
+function play(item) {
     disactive();
-    songContainer.src = folder + song;
+    songContainer.src = folder + item;
     songContainer.play();
-    card.classList.add("active");
+    const time = document.getElementById('duration')
+    time.innerText = duration
 }
 
 function disactive() {
