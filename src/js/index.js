@@ -1,7 +1,8 @@
-'use strict'
+"use strict";
+// import videoController from "./video/index.js";
+import audioController from "./audio/index.js";
 
-import videoFunction from "./video/index.js"
-
-document.addEventListener('DOMContentLoaded', () => {
-    videoFunction()
-})
+document.addEventListener("DOMContentLoaded", () => {
+    // videoController();
+    audioController();
+});

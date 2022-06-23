@@ -1,8 +1,11 @@
 'use strict'
+const video = document.getElementById('video')
+video.controls = false
 
-function videoFunction () {
-    const video = document.getElementById('video')
-    console.log(video);
+function videoController () {
+
+
+
 }
 
-export default videoFunction
+export default videoController
