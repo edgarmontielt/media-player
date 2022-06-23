@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #0e0e0e;
 }
@@ -17,8 +25,27 @@ body {
   grid-template-columns: 1fr 5fr 1fr;
 }
 
-.content {
+.container-content {
   max-width: 1280px;
   margin: 0 auto;
   margin-top: 1rem;
+  display: flex;
+}
+
+.content-video {
+  width: 100%;
+  padding: 3rem;
+}
+
+.content-list {
+  width: 100%;
+  padding: 3rem;
+}
+
+.container-controls {
+  background-color: black;
+  padding: 2rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
