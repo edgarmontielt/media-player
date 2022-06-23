@@ -4,6 +4,7 @@ import { controls } from "./controllers/controls.js";
 
 const contentList = document.querySelector(".content-list");
 const songContainer = document.getElementById("audio");
+const progress = document.getElementById('progress')
 const folder = "../assets/audio/";
 let duration;
 
@@ -11,7 +12,6 @@ songContainer.controls = false
 
 songContainer.addEventListener("loadeddata", (event) => {
     duration = event.target.duration;
-    console.log(duration);
 });
 
 export default function audioController() {
@@ -20,6 +20,11 @@ export default function audioController() {
         contentList.appendChild(res);
         addEvents(res, song);
     });
+    
+    songContainer.addEventListener('timeupdate', (event) => {
+        const time = (event.target.currentTime / event.target.duration) * 100
+        progress.value = isNaN(time) ? 0 : time
+    })
 }
 
 function renderSongName(data) {
@@ -51,3 +56,5 @@ function disactive() {
 }
 
 controls(songContainer)
+
+

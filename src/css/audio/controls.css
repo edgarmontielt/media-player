@@ -8,13 +8,34 @@
 }
 
 .controls-container {
-    display: flex;
-    align-items: center;
-    gap: 10px
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .controls-container_button {
   cursor: pointer;
   background: transparent;
   color: white;
+}
+
+#progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+}
+
+#progress[value] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#progress[value]::-webkit-progress-bar {
+  background-color: rgb(122, 113, 186);
+}
+
+#progress[value]::-webkit-progress-value {
+  background-color: rgb(59, 59, 59);
 }
