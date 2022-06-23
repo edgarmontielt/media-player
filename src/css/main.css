@@ -61,12 +61,3 @@ body {
 .content-list .active {
   background-color: #0e0e0e;
 }
-
-.container-controls {
-  background-color: black;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  z-index: 10;
-}

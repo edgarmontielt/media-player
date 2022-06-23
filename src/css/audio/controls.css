@@ -1,4 +1,20 @@
-.container-controls_button {
-    cursor: pointer;
-    background: transparent;
+.controls {
+  background-color: black;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 10;
+}
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.controls-container_button {
+  cursor: pointer;
+  background: transparent;
+  color: white;
 }
