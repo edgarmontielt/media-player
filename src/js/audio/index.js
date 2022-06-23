@@ -4,27 +4,29 @@ import { controls } from "./controllers/controls.js";
 
 const contentList = document.querySelector(".content-list");
 const songContainer = document.getElementById("audio");
-const progress = document.getElementById('progress')
+const progress = document.getElementById("progress");
+const playBtn = document.getElementById('play-music')
 const folder = "../assets/audio/";
-let duration;
+let duration = 0.0;
 
-songContainer.controls = false
+
+songContainer.controls = false;
 
 songContainer.addEventListener("loadeddata", (event) => {
     duration = event.target.duration;
 });
 
-export default function audioController() {
+function audioController() {
     songs.forEach((song) => {
         const res = renderSongName(song);
         contentList.appendChild(res);
         addEvents(res, song);
     });
-    
-    songContainer.addEventListener('timeupdate', (event) => {
-        const time = (event.target.currentTime / event.target.duration) * 100
-        progress.value = isNaN(time) ? 0 : time
-    })
+
+    songContainer.addEventListener("timeupdate", (event) => {
+        const time = (event.target.currentTime / event.target.duration) * 100;
+        progress.value = isNaN(time) ? 0 : time;
+    });
 }
 
 function renderSongName(data) {
@@ -46,6 +48,7 @@ function play(item) {
     disactive();
     songContainer.src = folder + item;
     songContainer.play();
+    playBtn.innerText = 'PAUSE'
     const time = document.getElementById("duration");
     time.innerText = duration;
 }
@@ -55,6 +58,6 @@ function disactive() {
     elementsAct.forEach((elem) => elem.classList.remove("active"));
 }
 
-controls(songContainer)
+controls(songContainer, playBtn);
 
-
+export default audioController;
