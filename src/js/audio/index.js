@@ -34,13 +34,8 @@ function audioController() {
         progress.value = isNaN(time) ? 0 : time;
     });
 
-    nextIcon.addEventListener('click', () => {
-        nextMusic()
-    })
-
-    previusIcon.addEventListener('click', () => {
-        previusMusic()
-    })
+    nextIcon.addEventListener('click', nextMusic)
+    previusIcon.addEventListener('click', previusMusic)
 }
 
 function addStylesToControls() {

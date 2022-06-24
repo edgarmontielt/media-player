@@ -1,20 +1,18 @@
 'use strict'
 
-const back = document.getElementById('back')
-const advance = document.getElementById('advance')
-const progress = document.getElementById('progress')
-const volumeIcon = document.getElementById('volume-icon')
-const volume = document.getElementById('volume')
+const $ = item => document.getElementById(item)
 const listSongs = document.querySelectorAll('.content-list_card')
+
+const volumeIcon =  $('volume-icon')
 
 function controls(music, button, duration) {
     button.addEventListener('click', () => playOrPause(music, button))
-    back.addEventListener('click', () => backTime(music))
-    advance.addEventListener('click', () => advancedTime(music))
-    progress.addEventListener('input', event => dragProgressBar(music, duration, event.target.value))
+    $('progress').addEventListener('input', event => dragProgressBar(music, duration, event.target.value))
+    $('advance').addEventListener('click', () => advancedTime(music))
+    $('back').addEventListener('click', () => backTime(music))
+    $('volume').addEventListener('input', (event) => audio.volume = event.target.value / 100)
     volumeIcon.addEventListener('mouseover', () => volume.style.display = 'block')
     volumeIcon.addEventListener('click', () => volume.style.display = 'none')
-    volume.addEventListener('input', (event) => audio.volume = event.target.value / 100)
 }
 
 function playOrPause(data, button) {
@@ -51,7 +49,9 @@ function previus(songs,index, callback) {
     let previusSong
     callback()
     songs.forEach((item, i) => {
-        if (item.src === index[0]) previusSong = songs[i - 1]
+        if (item.src === index[0]) {
+            previusSong = songs[i - 1]
+        }
     })
     listSongs.forEach((item, i) => {
         if (item.innerText === previusSong.name) {
