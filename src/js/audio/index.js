@@ -1,15 +1,19 @@
 "use strict";
 import songs from "../../data/music.json" assert { type: "json" };
-import { controls } from "./controllers/controls.js";
+import { controls, next, previus } from "./controllers/controls.js";
 
 const songContainer = document.getElementById("audio");
 const progress = document.getElementById("progress");
 const playBtn = document.getElementById("play-music");
+const previusIcon = document.getElementById('previus')
+const nextIcon = document.getElementById('next')
 const folder = "../assets/audio/";
 let duration = 0.0;
 const $ = item => document.querySelector(item)
 
 songContainer.controls = false;
+
+let index = []
 
 songContainer.addEventListener("loadeddata", (event) => {
     duration = event.target.duration;
@@ -29,6 +33,14 @@ function audioController() {
         const time = (event.target.currentTime / event.target.duration) * 100;
         progress.value = isNaN(time) ? 0 : time;
     });
+
+    nextIcon.addEventListener('click', () => {
+        nextMusic()
+    })
+
+    previusIcon.addEventListener('click', () => {
+        previusMusic()
+    })
 }
 
 function addStylesToControls() {
@@ -62,8 +74,6 @@ const createElem = (label, { atributes, className }) => {
 function addEvents(card, song) {
     const name = song.src;
     card.onclick = () => {
-
-        console.log(name);
         play(name, card);
         card.classList.add("active");
     };
@@ -76,7 +86,22 @@ function play(item, card) {
     playBtn.innerHTML = '<img id="" src="../../public/svg/pause-circle.svg" alt="play-circle" />';
     // const time = document.getElementById("duration");
     // time.innerText = duration;
+    index[0] = item
     renderImageForPanel(card.firstChild.src);
+}
+
+function nextMusic() {
+    const nextSong = next(songs, index, disactive)
+    const card = renderSongCard(nextSong)
+    addEvents(card, nextSong)
+    play(nextSong.src, card)
+}
+
+function previusMusic() {
+    const previusSong = previus(songs, index, disactive)
+    const card = renderSongCard(previusSong)
+    addEvents(card, previusSong)
+    play(previusSong.src, card)
 }
 
 function renderImageForPanel(src) {
@@ -87,9 +112,9 @@ function renderImageForPanel(src) {
 }
 
 function disactive() {
-    const elementsAct = document.querySelectorAll(".active");
+    const elementsAct = document.querySelectorAll(".active" || ".actives");
     elementsAct.forEach((elem) => {
-        elem.classList.remove("active");
+        elem.classList.remove("active" || "actives");
     });
 }
 

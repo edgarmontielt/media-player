@@ -38,15 +38,21 @@
         <div class="controls">
             <section class="controls-container">
                 <button id="back" class="controls-container_button"> -10</button>
+                <button id="previus" class="controls-container_button"> 
+                    <img id="" src="../../public/svg/skip-previus.svg" alt="play-circle" />
+                </button>
                 <button id="play-music" class="controls-container_button">
                     <img id="" src="../../public/svg/play-circle.svg" alt="play-circle" />
+                </button>
+                <button id="next" class="controls-container_button">
+                    <img id="" src="../../public/svg/skip-next.svg" alt="play-circle" />
                 </button>
                 <button id="advance" class="controls-container_button"> +10 </button>
                 <input id="progress" type="range" value="0" max="100"></input>
             </section>
             <section class="controls-volume">
                 <img id="volume-icon" src="../../public/svg/volume.svg"/>
-                <input id="volume" type="range" value="0" max="100"></input>
+                <input id="volume" type="range" value="100" max="100"></input>
             </section>
         </div>
     </main>

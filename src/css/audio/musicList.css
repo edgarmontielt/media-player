@@ -39,6 +39,10 @@
   background-color: black;
 }
 
+.content-list .actives {
+  background-color: black;
+}
+
 .content-list_title h2 {
   font-size: 18px;
 }
@@ -54,7 +58,7 @@
   border-radius: 8px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .content-list {
     height: 80vh;
   }
