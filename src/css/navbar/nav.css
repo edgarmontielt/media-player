@@ -1,0 +1,18 @@
+.navbar {
+  background-color: black;
+  font-weight: 500;
+  color: white;
+  padding: 10px;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+
+.navbar-container_title {
+  font-size: 16px;
+}

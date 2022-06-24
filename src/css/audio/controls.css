@@ -1,0 +1,44 @@
+.controls {
+  background-color: black;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 10;
+  display: none;
+}
+
+@keyframes animOpac {
+  from {
+    transform:translateY(100px);
+  }
+  to {
+    transform:translateY(0);
+  }
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls-container_button {
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+#progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+}
+
+#progress[value] {
+  appearance: none;
+  -webkit-appearance: none;
+}

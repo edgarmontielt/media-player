@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Creative Mindd",
+        "src": "creativeminds.mp3",
+        "img": "https://cdn.bensound.com/image/cover/creativeminds-thumb.webp"
+    },
+    {
+        "name": "Dreams",
+        "src": "dreams.mp3",
+        "img": "https://cdn.bensound.com/image/cover/dreams-thumb.webp"
+    },
+    {
+        "name": "Hip Jazz",
+        "src": "hipjazz.mp3",
+        "img": "https://cdn.bensound.com/image/cover/creativeminds-thumb.webp"
+    },
+    {
+        "name": "Ukulele",
+        "src": "ukulele.mp3",
+        "img": "https://cdn.bensound.com/image/cover/ukulele-thumb.webp"
+    },
+    {
+        "name": "All That",
+        "src": "allthat.mp3",
+        "img": "https://cdn.bensound.com/image/cover/allthat-thumb.webp"
+    },
+    {
+        "name": "Evolution",
+        "src": "evolution.mp3",
+        "img": "https://cdn.bensound.com/image/cover/evolution-thumb.webp"
+    },
+    {
+        "name": "Inspire",
+        "src": "inspire.mp3",
+        "img": "https://cdn.bensound.com/image/cover/inspire-thumb.webp"
+    },
+    {
+        "name": "Happy Rock",
+        "src": "happyrock.mp3",
+        "img": "https://cdn.bensound.com/image/cover/happyrock-thumb.webp"
+    },
+    {
+        "name": "Down Town",
+        "src": "downtown.mp3",
+        "img": "https://cdn.bensound.com/image/cover/downtown-thumb.webp"
+    }
+]

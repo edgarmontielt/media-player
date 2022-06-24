@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Document</title>
 </head>
+
 <body>
-    Hola
+    <nav class="navbar">
+        <div class="navbar-container">
+            <h1 class="navbar-container_title">Logo</h1>
+            <ul class="navbar-container_items">
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="container-content">
+            <section class="content-video">
+                <!-- <video id="video" controls>
+                    <source src="../assets/nature.mp4">
+                </video> -->
+                <div class="content-video_image"></div>
+                <audio id="audio" src="" controls></audio>
+            </section>
+            <section class="content-list">
+                <h2 class="content-list_title">Music</h2>
+                <ul class="content-list_items"></ul>
+            </section>
+        </div>
+
+        <div class="controls">
+            <section class="controls-container">
+                <button id="back" class="controls-container_button"> -10</button>
+                <button id="play-music" class="controls-container_button">
+                    <img id="" src="../../public/svg/play-circle.svg" alt="play-circle" />
+                </button>
+                <button id="advance" class="controls-container_button"> +10 </button>
+                <input id="progress" type="range" value="0" max="100"></input>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/index.js" type="module"></script>
 </body>
+
 </html>
