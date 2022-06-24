@@ -4,20 +4,31 @@ const back = document.getElementById('back')
 const advance = document.getElementById('advance')
 const progress = document.getElementById('progress')
 
+const volumeIcon = document.getElementById('volume-icon')
+const volume = document.getElementById('volume')
+
 function controls(music, button, duration) {
     button.addEventListener('click', () => playOrPause(music, button))
     back.addEventListener('click', () => backTime(music))
     advance.addEventListener('click', () => advancedTime(music))
     progress.addEventListener('input', event => dragProgressBar(music, duration, event.target.value))
+
+    volumeIcon.addEventListener('mouseover', () => {
+        volume.style.display = 'block'
+    })
+
+    volumeIcon.addEventListener('click', () => {
+        volume.style.display = 'none'
+    })
 }
 
 function playOrPause(data, button) {
     if (data.paused) {
         data.play()
-        button.innerText = 'PAUSE'
+        button.innerHTML = '<img id="" src="../../public/svg/pause-circle.svg" alt="play-circle" />'
     } else {
         data.pause()
-        button.innerText = 'PLAY'
+        button.innerHTML = '<img id="" src="../../public/svg/play-circle.svg" alt="play-circle" />'
     }
 }
 

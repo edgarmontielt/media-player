@@ -33,7 +33,7 @@ function audioController() {
 
 function addStylesToControls() {
     $('.controls').style.animation = `animOpac 1s ease`
-    $('.controls').style.display = "block";
+    $('.controls').style.display = "flex";
     $('.container-content').style.display = 'grid'
     $('.content-video').style.display = 'block'
 }
@@ -73,7 +73,7 @@ function play(item, card) {
     disactive();
     songContainer.src = folder + item;
     songContainer.play();
-    playBtn.innerText = "PAUSE";
+    playBtn.innerHTML = '<img id="" src="../../public/svg/pause-circle.svg" alt="play-circle" />';
     // const time = document.getElementById("duration");
     // time.innerText = duration;
     renderImageForPanel(card.firstChild.src);

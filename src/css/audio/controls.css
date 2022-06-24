@@ -8,6 +8,34 @@
   display: none;
 }
 
+.controls-volume {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+}
+
+#volume {
+  height: 2px;
+  width: 100%;
+  display: none;
+  animation: volumeAnim 1s ease-in;
+}
+
+#volume[value] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+@keyframes volumeAnim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 @keyframes animOpac {
   from {
     transform:translateY(100px);
