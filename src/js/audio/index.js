@@ -2,6 +2,7 @@
 import songs from "../../data/music.json" assert { type: "json" };
 import { controls } from "./controllers/controls.js";
 
+
 const songContainer = document.getElementById("audio");
 const progress = document.getElementById("progress");
 const playBtn = document.getElementById("play-music");
@@ -12,6 +13,8 @@ songContainer.controls = false;
 
 songContainer.addEventListener("loadeddata", (event) => {
     duration = event.target.duration;
+    addStylesToProgress()
+    controls(songContainer, playBtn, duration);
 });
 
 function audioController() {
@@ -26,6 +29,12 @@ function audioController() {
         const time = (event.target.currentTime / event.target.duration) * 100;
         progress.value = isNaN(time) ? 0 : time;
     });
+}
+
+function addStylesToProgress() {
+    const controlsContainer = document.querySelector('.controls')
+    controlsContainer.style.animation = `animOpac 1s ease`
+    controlsContainer.style.display = 'block'
 }
 
 function renderSongCard(data) {
@@ -72,7 +81,5 @@ function disactive() {
         elem.classList.remove("active")
     });
 }
-
-controls(songContainer, playBtn);
 
 export default audioController;

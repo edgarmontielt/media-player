@@ -1,13 +1,26 @@
 .content-list {
   width: 100%;
-  height: 80vh;
-  padding: 2rem;
-  margin-bottom: 5rem;
+  height: 75vh;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 10rem;
   color: white;
   overflow-y: scroll;
 }
 
-.content-list
+.content-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.content-list::-webkit-scrollbar-track {
+  background: #19242e;
+  border-radius: 9999px;
+}
+
+.content-list::-webkit-scrollbar-thumb {
+  background-color: rgb(62, 62, 62);
+  border-radius: 9999px;
+}
 
 .content-list_card {
   display: flex;
@@ -22,8 +35,7 @@
   background-color: black;
 }
 
-.content-list 
-.active {
+.content-list .active {
   background-color: black;
 }
 
@@ -41,4 +53,10 @@
   width: 2rem;
   height: 2rem;
   border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .content-list {
+    height: 40vh;
+  }
 }

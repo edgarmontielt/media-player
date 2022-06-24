@@ -2,11 +2,13 @@
 
 const back = document.getElementById('back')
 const advance = document.getElementById('advance')
+const progress = document.getElementById('progress')
 
-function controls(music, button) {
+function controls(music, button, duration) {
     button.addEventListener('click', () => playOrPause(music, button))
     back.addEventListener('click', () => backTime(music))
     advance.addEventListener('click', () => advancedTime(music))
+    progress.addEventListener('input', event => dragProgressBar(music, duration, event.target.value))
 }
 
 function playOrPause(data, button) {
@@ -25,6 +27,10 @@ function backTime(data) {
 
 function advancedTime(data) {
     data.currentTime += 10
+}
+
+function dragProgressBar(music, duration, value) {
+    music.currentTime = (duration / 100) * value
 }
 
 export { controls }

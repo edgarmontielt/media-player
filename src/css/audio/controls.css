@@ -5,6 +5,16 @@
   width: 100%;
   bottom: 0;
   z-index: 10;
+  display: none;
+}
+
+@keyframes animOpac {
+  from {
+    transform:translateY(100px);
+  }
+  to {
+    transform:translateY(0);
+  }
 }
 
 .controls-container {
@@ -31,12 +41,4 @@
 #progress[value] {
   appearance: none;
   -webkit-appearance: none;
-}
-
-#progress[value]::-webkit-progress-bar {
-  background-color: rgb(122, 113, 186);
-}
-
-#progress[value]::-webkit-progress-value {
-  background-color: rgb(59, 59, 59);
 }
