@@ -51,13 +51,17 @@ function addEvents(card, song) {
 
 function play(item, card) {
     disactive();
-    const content = document.querySelector('.content-video_image')
-    const imgPanel = `<img src=${card.firstChild.src} class="image-panel">`
     songContainer.src = folder + item;
     songContainer.play();
     playBtn.innerText = "PAUSE";
     const time = document.getElementById("duration");
     time.innerText = duration;
+    renderImageForPanel(card.firstChild.src)
+}
+
+function renderImageForPanel(src) {
+    const content = document.querySelector('.content-video_image')
+    const imgPanel = `<img src=${src} class="image-panel">`
     content.innerHTML = imgPanel
 }
 
