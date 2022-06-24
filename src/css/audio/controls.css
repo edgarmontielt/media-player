@@ -52,10 +52,10 @@
 
 @keyframes animOpac {
   from {
-    transform:translateY(100px);
+    transform: translateY(100px);
   }
   to {
-    transform:translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -93,7 +93,7 @@
   .controls {
     grid-template-columns: 2fr 1fr;
   }
-  .controls-title{
+  .controls-title {
     display: none;
   }
 }

@@ -1,9 +1,9 @@
 "use strict";
 
 const $ = (item) => document.getElementById(item);
-let musicCurrent;
-
 const volumeIcon = $("volume-icon");
+
+let musicCurrent;
 
 window.addEventListener("keydown", (event) => {
     const key = event.key;
@@ -33,7 +33,13 @@ function controls(music, button, duration) {
         "mouseover",
         () => (volume.style.display = "block")
     );
+    const imagePanel = document.querySelector('.image-panel')
     volumeIcon.addEventListener("click", () => (volume.style.display = "none"));
+    imagePanel.addEventListener('click', () => {
+        playOrPause(music, button)
+        console.log(imagePanel.classList);
+        imagePanel.classList.toggle('opacity')
+    })
 }
 
 function playOrPause(data, button) {

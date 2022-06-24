@@ -7,11 +7,20 @@
 
 .image-panel {
   width: 50%;
+  cursor: pointer;
+  border-radius: 16px;
 }
 
+.opacity {
+  opacity: 0.45;
+}
 
-@media (max-width:600px) {
-    .content-video_image {
-        height: 20vh;
-      }
+.image-panel:hover {
+  opacity: 0.45;
+}
+
+@media (max-width: 600px) {
+  .content-video_image {
+    height: 20vh;
+  }
 }

@@ -58,7 +58,7 @@ function addStylesToControls() {
 }
 
 function renderSongCard(data) {
-    const card = createElem("div", {
+    const card = createElem("li", {
         className: "content-list_card",
     });
     const img = createElem("img", {
@@ -115,8 +115,9 @@ function previusMusic() {
     const listSongs = document.querySelectorAll(".content-list_card");
     const previusSong = previus(songs, index, listSongs, disactive);
     const card = renderSongCard(previusSong);
+    const { src, name, img } = previusSong;
     addEvents(card, previusSong);
-    play(previusSong.src, card);
+    play(src, name, img, card, card);
 }
 
 function renderImageForPanel(src) {
