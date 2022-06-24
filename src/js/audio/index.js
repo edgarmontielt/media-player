@@ -40,7 +40,7 @@ function audioController() {
 
 function addStylesToControls() {
     $('.controls').style.animation = `animOpac 1s ease`
-    $('.controls').style.display = "flex";
+    $('.controls').style.display = "grid";
     $('.container-content').style.display = 'grid'
     $('.content-video').style.display = 'block'
 }
@@ -67,14 +67,15 @@ const createElem = (label, { atributes, className }) => {
 };
 
 function addEvents(card, song) {
-    const name = song.src;
+    const {src, name, img} = song;
     card.onclick = () => {
-        play(name, card);
+        disactive()
+        play(src, name, img, card);
         card.classList.add("active");
     };
 }
 
-function play(item, card) {
+function play(item, name, img, card) {
     disactive();
     songContainer.src = folder + item;
     songContainer.play();
@@ -82,18 +83,26 @@ function play(item, card) {
     // const time = document.getElementById("duration");
     // time.innerText = duration;
     index[0] = item
+    $('.controls-title').innerHTML = `
+        <img src="${img}" class="image"/>
+        <h1>${name}</h1>
+    `
     renderImageForPanel(card.firstChild.src);
 }
 
 function nextMusic() {
-    const nextSong = next(songs, index, disactive)
+    const listSongs = document.querySelectorAll('.content-list_card')
+    const nextSong = next(songs, index, listSongs, disactive)
+
+    const {src, name, img} = nextSong;
     const card = renderSongCard(nextSong)
     addEvents(card, nextSong)
-    play(nextSong.src, card)
+    play(src, name, img, card)
 }
 
 function previusMusic() {
-    const previusSong = previus(songs, index, disactive)
+    const listSongs = document.querySelectorAll('.content-list_card')
+    const previusSong = previus(songs, index, listSongs, disactive)
     const card = renderSongCard(previusSong)
     addEvents(card, previusSong)
     play(previusSong.src, card)

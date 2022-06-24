@@ -6,6 +6,20 @@
   bottom: 0;
   z-index: 10;
   display: none;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.controls-title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls-title h1 {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .controls-volume {
@@ -69,4 +83,13 @@
 #progress[value] {
   appearance: none;
   -webkit-appearance: none;
+}
+
+@media (max-width: 720px) {
+  .controls {
+    grid-template-columns: 2fr 1fr;
+  }
+  .controls-title{
+    display: none;
+  }
 }

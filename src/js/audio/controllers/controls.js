@@ -1,7 +1,6 @@
 'use strict'
 
 const $ = item => document.getElementById(item)
-const listSongs = document.querySelectorAll('.content-list_card')
 
 const volumeIcon =  $('volume-icon')
 
@@ -30,22 +29,22 @@ const advancedTime = data => data.currentTime += 10
 const dragProgressBar = (music, duration, value) => music.currentTime = (duration / 100) * value
 
 
-function next(songs, index, callback) {
+function next(songs, index, list, callback) {
     let nextSong
     callback()
     songs.forEach((item, i) => {
         if (item.src === index[0]) nextSong = songs[i + 1]
     })
-    listSongs.forEach((item, i) => {
+    list.forEach((item, i) => {
         if (item.innerText === nextSong.name) {
-            listSongs[i - 1].classList.remove('actives')
+            list[i - 1].classList.remove('actives')
             item.classList.add('actives')
         }
     })
     return nextSong
 }
 
-function previus(songs,index, callback) {
+function previus(songs, index,list, callback) {
     let previusSong
     callback()
     songs.forEach((item, i) => {
@@ -53,9 +52,10 @@ function previus(songs,index, callback) {
             previusSong = songs[i - 1]
         }
     })
-    listSongs.forEach((item, i) => {
+
+    list.forEach((item, i) => {
         if (item.innerText === previusSong.name) {
-            listSongs[i + 1].classList.remove('actives')
+            list[i + 1].classList.remove('actives')
             item.classList.add('actives')
         }
     })
