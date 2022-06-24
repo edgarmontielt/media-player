@@ -1,18 +1,22 @@
 [
     {
         "name": "Creative Mindd",
-        "src": "creativeminds.mp3"
+        "src": "creativeminds.mp3",
+        "img": "https://cdn.bensound.com/image/cover/creativeminds-thumb.webp"
     },
     {
         "name": "Dreams",
-        "src": "dreams.mp3"
+        "src": "dreams.mp3",
+        "img": "https://cdn.bensound.com/image/cover/dreams-thumb.webp"
     },
     {
         "name": "Hip Jazz",
-        "src": "hipjazz.mp3"
+        "src": "hipjazz.mp3",
+        "img": "https://cdn.bensound.com/image/cover/creativeminds-thumb.webp"
     },
     {
         "name": "Ukulele",
-        "src": "ukulele.mp3"
+        "src": "ukulele.mp3",
+        "img": "https://cdn.bensound.com/image/cover/ukulele-thumb.webp"
     }
 ]

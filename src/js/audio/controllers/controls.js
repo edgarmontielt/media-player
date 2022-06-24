@@ -9,7 +9,6 @@ function controls(music, button) {
     advance.addEventListener('click', () => advancedTime(music))
 }
 
-
 function playOrPause(data, button) {
     if (data.paused) {
         data.play()

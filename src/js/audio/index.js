@@ -2,13 +2,11 @@
 import songs from "../../data/music.json" assert { type: "json" };
 import { controls } from "./controllers/controls.js";
 
-const contentList = document.querySelector(".content-list");
 const songContainer = document.getElementById("audio");
 const progress = document.getElementById("progress");
-const playBtn = document.getElementById('play-music')
+const playBtn = document.getElementById("play-music");
 const folder = "../assets/audio/";
 let duration = 0.0;
-
 
 songContainer.controls = false;
 
@@ -18,8 +16,9 @@ songContainer.addEventListener("loadeddata", (event) => {
 
 function audioController() {
     songs.forEach((song) => {
-        const res = renderSongName(song);
-        contentList.appendChild(res);
+        const list = document.querySelector(".content-list_items");
+        const res = renderSongCard(song);
+        list.appendChild(res);
         addEvents(res, song);
     });
 
@@ -29,33 +28,44 @@ function audioController() {
     });
 }
 
-function renderSongName(data) {
-    const card = document.createElement("div");
-    card.className = "content-list_card";
-    card.innerText = data.name;
+function renderSongCard(data) {
+    const card = document.createElement("li");
+    const img = document.createElement("img");
+    const name = document.createElement("p");
+    img.src = data.img;
+    img.classList.add("image");
+    name.innerText = data.name;
+    card.classList.add("content-list_card");
+    card.appendChild(img);
+    card.appendChild(name);
     return card;
 }
 
 function addEvents(card, song) {
     const name = song.src;
     card.onclick = () => {
-        play(name);
+        play(name, card);
         card.classList.add("active");
     };
 }
 
-function play(item) {
+function play(item, card) {
     disactive();
+    const content = document.querySelector('.content-video_image')
+    const imgPanel = `<img src=${card.firstChild.src} class="image-panel">`
     songContainer.src = folder + item;
     songContainer.play();
-    playBtn.innerText = 'PAUSE'
+    playBtn.innerText = "PAUSE";
     const time = document.getElementById("duration");
     time.innerText = duration;
+    content.innerHTML = imgPanel
 }
 
 function disactive() {
     const elementsAct = document.querySelectorAll(".active");
-    elementsAct.forEach((elem) => elem.classList.remove("active"));
+    elementsAct.forEach((elem) => {
+        elem.classList.remove("active")
+    });
 }
 
 controls(songContainer, playBtn);

@@ -44,20 +44,45 @@ body {
 
 .content-list {
   width: 100%;
-  padding: 3rem;
+  padding: 2rem;
   color: white;
 }
 
 .content-list_card{
-  background-color: black;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: .5rem;
+  margin: 10px 0;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .content-list_card:hover{
-  background-color: #0e0e0e;
+  background-color: black;
 }
 
 .content-list .active {
-  background-color: #0e0e0e;
+  background-color: black;
+}
+
+.content-list_title{
+  margin-bottom: 20px;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.content-list_items {
+  font-size: 14px;
+}
+
+.image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+.image-panel {
+  width: 70%;
+  height: 100%;
 }
