@@ -1,68 +1,76 @@
-'use strict'
+"use strict";
 
-const $ = item => document.getElementById(item)
+const $ = (item) => document.getElementById(item);
 
-const volumeIcon =  $('volume-icon')
+const volumeIcon = $("volume-icon");
 
 function controls(music, button, duration) {
-    button.addEventListener('click', () => playOrPause(music, button))
-    $('progress').addEventListener('input', event => dragProgressBar(music, duration, event.target.value))
-    $('advance').addEventListener('click', () => advancedTime(music))
-    $('back').addEventListener('click', () => backTime(music))
-    $('volume').addEventListener('input', (event) => audio.volume = event.target.value / 100)
-    volumeIcon.addEventListener('mouseover', () => volume.style.display = 'block')
-    volumeIcon.addEventListener('click', () => volume.style.display = 'none')
+    button.addEventListener("click", () => playOrPause(music, button));
+    $("progress").addEventListener("input", (event) =>
+        dragProgressBar(music, duration, event.target.value)
+    );
+    $("advance").addEventListener("click", () => advancedTime(music));
+    $("back").addEventListener("click", () => backTime(music));
+    $("volume").addEventListener(
+        "input",
+        (event) => (audio.volume = event.target.value / 100)
+    );
+    volumeIcon.addEventListener(
+        "mouseover",
+        () => (volume.style.display = "block")
+    );
+    volumeIcon.addEventListener("click", () => (volume.style.display = "none"));
 }
 
 function playOrPause(data, button) {
     if (data.paused) {
-        data.play()
-        button.innerHTML = '<img id="" src="../../public/svg/pause-circle.svg" alt="play-circle" />'
+        data.play();
+        button.innerHTML =
+            '<img id="" src="../../public/svg/pause-circle.svg" alt="play-circle" />';
     } else {
-        data.pause()
-        button.innerHTML = '<img id="" src="../../public/svg/play-circle.svg" alt="play-circle" />'
+        data.pause();
+        button.innerHTML =
+            '<img id="" src="../../public/svg/play-circle.svg" alt="play-circle" />';
     }
 }
 
-const backTime = data => data.currentTime -= 10
-const advancedTime = data => data.currentTime += 10
-const dragProgressBar = (music, duration, value) => music.currentTime = (duration / 100) * value
-
+const backTime = (data) => (data.currentTime -= 10);
+const advancedTime = (data) => (data.currentTime += 10);
+const dragProgressBar = (music, duration, value) =>
+    (music.currentTime = (duration / 100) * value);
 
 function next(songs, index, list, callback) {
-    let nextSong
-    callback()
+    let nextSong;
+    callback();
     songs.forEach((item, i) => {
-        if (item.src === index[0]) nextSong = songs[i + 1]
-    })
+        if (item.src === index[0]) nextSong = songs[i + 1];
+    });
     list.forEach((item, i) => {
         if (item.innerText === nextSong.name) {
-            list[i - 1].classList.remove('actives')
-            item.classList.add('actives')
+            list[i - 1].classList.remove("actives");
+            item.classList.add("actives");
         }
-    })
-    return nextSong
+    });
+    return nextSong;
 }
 
-function previus(songs, index,list, callback) {
-    let previusSong
-    callback()
+function previus(songs, index, list, callback) {
+    let previusSong;
+    callback();
     songs.forEach((item, i) => {
         if (item.src === index[0]) {
-            previusSong = songs[i - 1]
+            previusSong = songs[i - 1];
         }
-    })
+    });
 
     list.forEach((item, i) => {
         if (item.innerText === previusSong.name) {
-            list[i + 1].classList.remove('actives')
-            item.classList.add('actives')
+            list[i + 1].classList.remove("actives");
+            item.classList.add("actives");
         }
-    })
+    });
 
-    return previusSong
+    return previusSong;
 }
 
-
-export { controls, next, previus }
-
+export { controls, next, previus };

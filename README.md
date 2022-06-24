@@ -9,6 +9,9 @@
 - [x] CSS
 - [x] Javascript 
 
+## Future changes
+- [ ] Implement with webpack
+
 ## Getting Started
 
 Clone the repository

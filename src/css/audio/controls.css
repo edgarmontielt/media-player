@@ -85,6 +85,10 @@
   -webkit-appearance: none;
 }
 
+#duration {
+  font-size: 10px;
+}
+
 @media (max-width: 720px) {
   .controls {
     grid-template-columns: 2fr 1fr;
