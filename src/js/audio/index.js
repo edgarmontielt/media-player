@@ -2,7 +2,6 @@
 import songs from "../../data/music.json" assert { type: "json" };
 import { controls } from "./controllers/controls.js";
 
-
 const songContainer = document.getElementById("audio");
 const progress = document.getElementById("progress");
 const playBtn = document.getElementById("play-music");
@@ -13,7 +12,7 @@ songContainer.controls = false;
 
 songContainer.addEventListener("loadeddata", (event) => {
     duration = event.target.duration;
-    addStylesToProgress()
+    addStylesToControls();
     controls(songContainer, playBtn, duration);
 });
 
@@ -31,24 +30,32 @@ function audioController() {
     });
 }
 
-function addStylesToProgress() {
-    const controlsContainer = document.querySelector('.controls')
-    controlsContainer.style.animation = `animOpac 1s ease`
-    controlsContainer.style.display = 'block'
+function addStylesToControls() {
+    const controlsContainer = document.querySelector(".controls");
+    controlsContainer.style.animation = `animOpac 1s ease`;
+    controlsContainer.style.display = "block";
 }
 
 function renderSongCard(data) {
-    const card = document.createElement("li");
-    const img = document.createElement("img");
+    const card = createElem("div", {
+        className: "content-list_card",
+    });
+    const img = createElem("img", {
+        className: "image",
+    });
     const name = document.createElement("p");
     img.src = data.img;
-    img.classList.add("image");
     name.innerText = data.name;
-    card.classList.add("content-list_card");
     card.appendChild(img);
     card.appendChild(name);
     return card;
 }
+
+const createElem = (label, { atributes, className }) => {
+    const elem = document.createElement(label);
+    elem.classList.add(className);
+    return elem;
+};
 
 function addEvents(card, song) {
     const name = song.src;
@@ -65,20 +72,20 @@ function play(item, card) {
     playBtn.innerText = "PAUSE";
     // const time = document.getElementById("duration");
     // time.innerText = duration;
-    renderImageForPanel(card.firstChild.src)
+    renderImageForPanel(card.firstChild.src);
 }
 
 function renderImageForPanel(src) {
-    const content = document.querySelector('.content-video_image')
-    const imgPanel = `<img src=${src} class="image-panel">`
+    const content = document.querySelector(".content-video_image");
+    const imgPanel = `<img src=${src} class="image-panel">`;
 
-    content.innerHTML = imgPanel
+    content.innerHTML = imgPanel;
 }
 
 function disactive() {
     const elementsAct = document.querySelectorAll(".active");
     elementsAct.forEach((elem) => {
-        elem.classList.remove("active")
+        elem.classList.remove("active");
     });
 }
 
