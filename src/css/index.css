@@ -1,4 +1,7 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap";
 @import "./main.css";
+@import "./navbar/nav.css";
 @import "./video.css";
-@import "./audio/controls.css"
+@import "./audio/controls.css";
+@import "./audio/panel.css";
+@import "./audio/musicList.css";

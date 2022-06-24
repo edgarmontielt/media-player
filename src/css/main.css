@@ -1,88 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 body {
+  font-family: "Montserrat", sans-serif;
   background-color: #0e0e0e;
-}
-
-.navbar {
-  background-color: black;
-  font-weight: 500;
-  color: white;
-  padding: 10px;
-}
-
-.navbar-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 8px 0;
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-}
-
-.navbar-container_title {
-  font-size: 16px;
-}
-
-.container-content {
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-top: 1rem;
-  display: flex;
-  /* flex-wrap: wrap; */
-}
-
-.content-video {
-  width: 100%;
-  padding: 3rem;
-}
-
-.content-list {
-  width: 100%;
-  padding: 2rem;
-  color: white;
-}
-
-.content-list_card{
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: .5rem;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.content-list_card:hover{
-  background-color: black;
-}
-
-.content-list .active {
-  background-color: black;
-}
-
-.content-list_title{
-  margin-bottom: 20px;
-  margin-left: 5px;
-  font-size: 18px;
-}
-
-.content-list_items {
-  font-size: 14px;
-}
-
-.image {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 10px;
-}
-
-.image-panel {
-  width: 70%;
-  height: 100%;
+  list-style: none;
 }

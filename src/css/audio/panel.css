@@ -1,0 +1,9 @@
+.image-panel {
+  width: 50%;
+}
+
+.content-video_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
