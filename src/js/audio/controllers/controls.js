@@ -1,10 +1,24 @@
 "use strict";
 
 const $ = (item) => document.getElementById(item);
+let musicCurrent;
 
 const volumeIcon = $("volume-icon");
 
+window.addEventListener("keydown", (event) => {
+    const key = event.key;
+    switch (key) {
+        case "ArrowRight":
+            advancedTime(musicCurrent);
+            break;
+        case "ArrowLeft":
+            backTime(musicCurrent);
+            break;
+    }
+});
+
 function controls(music, button, duration) {
+    musicCurrent = music;
     button.addEventListener("click", () => playOrPause(music, button));
     $("progress").addEventListener("input", (event) =>
         dragProgressBar(music, duration, event.target.value)

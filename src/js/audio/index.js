@@ -3,8 +3,8 @@ import songs from "../../data/music.json" assert { type: "json" };
 import { controls, next, previus } from "./controllers/controls.js";
 
 const songContainer = document.getElementById("audio");
-const progress = document.getElementById("progress");
 const playBtn = document.getElementById("play-music");
+const progress = document.getElementById("progress");
 const previusIcon = document.getElementById("previus");
 const nextIcon = document.getElementById("next");
 const folder = "../assets/audio/";
@@ -23,16 +23,15 @@ songContainer.addEventListener("loadeddata", (event) => {
 
 function audioController() {
     songs.forEach((song) => {
-        const list = document.querySelector(".content-list_items");
         const res = renderSongCard(song);
-        list.appendChild(res);
+        $(".content-list_items").appendChild(res);
         addEvents(res, song);
     });
 
     songContainer.addEventListener(
-        "timeupdate", 
+        "timeupdate",
         (event) =>
-        renderTime(event.target.currentTime)
+            renderTime(event.target.currentTime)
     );
     songContainer.addEventListener("ended", nextMusic);
     nextIcon.addEventListener("click", nextMusic);
@@ -94,8 +93,6 @@ function play(item, name, img, card) {
     songContainer.play();
     playBtn.innerHTML =
         '<img id="" src="../../public/svg/pause-circle.svg" alt="play-circle" />';
-    // const time = document.getElementById("duration");
-    // time.innerText = duration;
     index[0] = item;
     $(".controls-title").innerHTML = `
         <img src="${img}" class="image"/>
@@ -123,10 +120,8 @@ function previusMusic() {
 }
 
 function renderImageForPanel(src) {
-    const content = document.querySelector(".content-video_image");
     const imgPanel = `<img src=${src} class="image-panel">`;
-
-    content.innerHTML = imgPanel;
+    $(".content-video_image").innerHTML = imgPanel;
 }
 
 function disactive() {
