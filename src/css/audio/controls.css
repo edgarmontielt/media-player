@@ -17,6 +17,7 @@
   cursor: pointer;
   background: transparent;
   color: white;
+  border: none;
 }
 
 #progress {

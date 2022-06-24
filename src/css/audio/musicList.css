@@ -1,16 +1,3 @@
-.container-content {
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.content-video {
-  width: 100%;
-  padding: 3rem;
-}
-
 .content-list {
   width: 100%;
   padding: 2rem;
@@ -30,7 +17,8 @@
   background-color: black;
 }
 
-.content-list .active {
+.content-list 
+.active {
   background-color: black;
 }
 
