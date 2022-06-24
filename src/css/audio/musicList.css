@@ -39,14 +39,13 @@
   background-color: black;
 }
 
-.content-list_title {
-  margin-bottom: 20px;
-  margin-left: 5px;
+.content-list_title h2 {
   font-size: 18px;
 }
 
 .content-list_items {
   font-size: 12px;
+  margin-top: 1.5rem;
 }
 
 .image {

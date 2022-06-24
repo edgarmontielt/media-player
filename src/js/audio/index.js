@@ -7,6 +7,7 @@ const progress = document.getElementById("progress");
 const playBtn = document.getElementById("play-music");
 const folder = "../assets/audio/";
 let duration = 0.0;
+const $ = item => document.querySelector(item)
 
 songContainer.controls = false;
 
@@ -31,9 +32,10 @@ function audioController() {
 }
 
 function addStylesToControls() {
-    const controlsContainer = document.querySelector(".controls");
-    controlsContainer.style.animation = `animOpac 1s ease`;
-    controlsContainer.style.display = "block";
+    $('.controls').style.animation = `animOpac 1s ease`
+    $('.controls').style.display = "block";
+    $('.container-content').style.display = 'grid'
+    $('.content-video').style.display = 'block'
 }
 
 function renderSongCard(data) {
@@ -60,6 +62,8 @@ const createElem = (label, { atributes, className }) => {
 function addEvents(card, song) {
     const name = song.src;
     card.onclick = () => {
+
+        console.log(name);
         play(name, card);
         card.classList.add("active");
     };

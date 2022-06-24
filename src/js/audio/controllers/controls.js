@@ -21,17 +21,10 @@ function playOrPause(data, button) {
     }
 }
 
-function backTime(data) {
-    data.currentTime -= 10
-}
+const backTime = data => data.currentTime -= 10
+const advancedTime = data => data.currentTime += 10
+const dragProgressBar = (music, duration, value) => music.currentTime = (duration / 100) * value
 
-function advancedTime(data) {
-    data.currentTime += 10
-}
-
-function dragProgressBar(music, duration, value) {
-    music.currentTime = (duration / 100) * value
-}
 
 export { controls }
 
