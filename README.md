@@ -4,6 +4,11 @@
   This repository contains the code for the frontend of the media player application created with vanilla JS.
 </h4>
 
+## Technologies
+- [x] HTML
+- [x] CSS
+- [x] Javascript 
+
 ## Getting Started
 
 Clone the repository
