@@ -19,3 +19,5 @@ Clone the repository
 ```bash
 git clone https://github.com/edgarmontielt/media-player.git
 ```
+
+Music credits: https://www.bensound.com/
